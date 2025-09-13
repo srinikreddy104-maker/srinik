@@ -170,4 +170,57 @@ All colors MUST be HSL.
     outline: 2px solid hsl(var(--ring));
     outline-offset: 2px;
   }
+  
+  /* Beautiful animated background */
+  .wellness-background {
+    background: linear-gradient(-45deg, 
+      hsl(220 20% 98%), 
+      hsl(210 30% 96%), 
+      hsl(200 25% 97%), 
+      hsl(180 20% 98%)
+    );
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+  }
+  
+  .wellness-background::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 80%, hsl(210 70% 55% / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(140 60% 55% / 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, hsl(35 85% 65% / 0.06) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  /* Floating wellness elements */
+  .floating-element {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+  
+  .floating-element:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation: float 8s ease-in-out infinite;
+  }
+  
+  .floating-element:nth-child(2) {
+    top: 60%;
+    right: 15%;
+    animation: float 10s ease-in-out infinite reverse;
+  }
+  
+  .floating-element:nth-child(3) {
+    bottom: 30%;
+    left: 70%;
+    animation: float 12s ease-in-out infinite;
+  }
 }

@@ -53,13 +53,23 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen gradient-calm">
+    <div className="min-h-screen wellness-background relative">
+      {/* Floating Background Elements */}
+      <div className="floating-element">
+        <div className="w-24 h-24 rounded-full bg-primary/10 animate-pulse-soft"></div>
+      </div>
+      <div className="floating-element">
+        <div className="w-16 h-16 rounded-full bg-accent/15 animate-pulse-soft"></div>
+      </div>
+      <div className="floating-element">
+        <div className="w-20 h-20 rounded-full bg-secondary/20 animate-pulse-soft"></div>
+      </div>
       {/* Header */}
-      <header className="border-b border-border/50 bg-background/80 backdrop-blur-sm sticky top-0 z-50">
+      <header className="border-b border-border/30 bg-background/60 backdrop-blur-md sticky top-0 z-50 shadow-gentle">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-wellness flex items-center justify-center">
+            <div className="flex items-center gap-3 animate-fade-in">
+              <div className="w-10 h-10 rounded-full bg-gradient-wellness flex items-center justify-center shadow-glow animate-float">
                 <span className="text-xl">🧠</span>
               </div>
               <div>
@@ -95,7 +105,7 @@ const Index = () => {
       {/* Main Content */}
       <main className="container mx-auto px-4 pb-8">
         {activeSection === "check-in" && (
-          <div className="text-center mb-8">
+          <div className="text-center mb-8 animate-fade-in">
             <h2 className="text-3xl font-bold text-foreground mb-2">
               Welcome Back! 👋
             </h2>
@@ -105,11 +115,13 @@ const Index = () => {
           </div>
         )}
         
-        {renderContent()}
+        <div className="animate-scale-in">
+          {renderContent()}
+        </div>
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border/50 bg-background/50 mt-16">
+      <footer className="border-t border-border/30 bg-background/40 backdrop-blur-sm mt-16">
         <div className="container mx-auto px-4 py-8">
           <div className="text-center text-sm text-muted-foreground">
             <p className="mb-2">
